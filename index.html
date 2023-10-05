@@ -24,11 +24,8 @@
   }
 
   // Invoke Payment Function 
-  function onPayment(endpoint='https://uat-paymentv2.galaxypay.vn/checkout/2310055076517981767374687/20231005095527/bbb2d2748605862d01aebef8842a6e29f2121519c2927af9cb1baf1923d39837/vi-VN') {
+  function onPayment(endpoint='', language='en') {
     // endpoint that is received from API checkout
-    let option = {
-      language: "en" // vi or en
-    };
 
     // Call payment function from SDK
     galaxyPaySubmitPayment(endpoint, callbackPaymentResult, callbackOnCloseModal, option);
