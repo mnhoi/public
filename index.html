@@ -15,10 +15,12 @@
   alert();
   function callbackPaymentResult(resultData) {
     console.log(resultData);
+    window.ReactNativeWebView.postMessage(resultData);
   }
 
   // Callback Function close modal
   function callbackOnCloseModal() {
+    window.ReactNativeWebView.postMessage("close-modal");
     console.log("====== close modal ======");
   }
 
