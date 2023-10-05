@@ -14,12 +14,12 @@
 <script>
   function callbackPaymentResult(resultData) {
     console.log(resultData);
-    window.ReactNativeWebView.postMessage(resultData);
+    window.ReactNativeWebView.postMessage('success');
   }
 
   // Callback Function close modal
   function callbackOnCloseModal() {
-    window.ReactNativeWebView.postMessage("close-modal");
+    window.ReactNativeWebView.postMessage('fail');
     console.log("====== close modal ======");
   }
 
