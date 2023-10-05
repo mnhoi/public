@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Page Title</title>
+</head>
+<script src="https://uat-stc.galaxypay.vn/scripts/script-modal.js?version=20230710"></script>
+<body>
+
+
+  <div style="background-color: blue;" id="galaxy-pay-sdk"></div>
+
+</body>
+<script>
+  alert();
+  function callbackPaymentResult(resultData) {
+    console.log(resultData);
+  }
+
+  // Callback Function close modal
+  function callbackOnCloseModal() {
+    console.log("====== close modal ======");
+  }
+
+  // Invoke Payment Function 
+  function onPayment() {
+    let endpoint = "https://uat-paymentv2.galaxypay.vn/checkout/2310045378426661664308422/20231004120225/0d61de9ed2f6303e4ec62dfd3bb42c72d3fac66d1092bf93eac9e93ee01529f4/vi-VN";   // endpoint that is received from API checkout
+    let option = {
+      language: "en" // vi or en
+    };
+
+    // Call payment function from SDK
+    galaxyPaySubmitPayment(endpoint, callbackPaymentResult, callbackOnCloseModal, option);
+  }
+  onPayment();
+</script>
+
+</html>
