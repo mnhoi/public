@@ -10,13 +10,11 @@
 </body>
 <script>
   function callbackPaymentResult(resultData) {
-    console.log(resultData);
     window.ReactNativeWebView.postMessage('success');
   }
   // Callback Function close modal
   function callbackOnCloseModal() {
     window.ReactNativeWebView.postMessage('fail');
-    console.log("====== close modal ======");
   }
 
   // Invoke Payment Function 
