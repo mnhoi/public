@@ -40,8 +40,10 @@
     var elementsInIframe = iframeDocument.getElementsByClassName('model-button-back');
 
     // Loop through and manipulate the elements within the iframe
-   console.log(iframeDocument, "iframeDocumentiframeDocument")
-    console.log(elementsInIframe, "==============);
+    
+    window.ReactNativeWebView.postMessage(iframeDocument);
+    window.ReactNativeWebView.postMessage(elementsInIframe);
+
   }, 2000);
 </script>
 
