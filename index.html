@@ -27,6 +27,21 @@
     // Call payment function from SDK
     galaxyPaySubmitPayment(endpoint, callbackPaymentResult, callbackOnCloseModal, option);
   }
+   setTimeout(() => {
+    var iframes = document.getElementsByTagName('iframe');
+
+    // Access the first iframe
+    var firstIframe = iframes[0];
+
+    // Access the content of the first iframe
+    var iframeDocument = firstIframe.contentDocument || firstIframe.contentWindow.document;
+
+    // Access elements within the iframe by class name
+    var elementsInIframe = iframeDocument.getElementsByClassName('model-button-back');
+
+    // Loop through and manipulate the elements within the iframe
+   console.log(iframeDocument, "iframeDocumentiframeDocument")
+  }, 2000);
 </script>
 
 </html>
