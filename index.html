@@ -27,18 +27,7 @@
     // Call payment function from SDK
     galaxyPaySubmitPayment(endpoint, callbackPaymentResult, callbackOnCloseModal, option);
   }
-   setTimeout(() => {
-   var iframe = document.querySelector('iframe');
-   iframe.setAttribute('id', 'myIframe');
-   var getIframe = document.getElementById('myIframe');
-   alert(getIframe);
-   var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-       alert(iframeDocument);
-    
-    window.ReactNativeWebView.postMessage(iframeDocument);
-    window.ReactNativeWebView.postMessage(elementsInIframe);
-
-  }, 2000);
+  
 </script>
 
 </html>
