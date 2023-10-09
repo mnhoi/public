@@ -28,19 +28,12 @@
     galaxyPaySubmitPayment(endpoint, callbackPaymentResult, callbackOnCloseModal, option);
   }
    setTimeout(() => {
-    var iframes = document.getElementsByTagName('iframe');
-
-    // Access the first iframe
-    var firstIframe = iframes[0];
-    alert('cccc');
-    alert(firstIframe);
-    // Access the content of the first iframe
-    var iframeDocument = firstIframe.contentDocument || firstIframe.contentWindow.document;
-    alert(iframeDocument);
-    // Access elements within the iframe by class name
-    var elementsInIframe = iframeDocument.getElementsByClassName('model-button-back');
-   
-    // Loop through and manipulate the elements within the iframe
+   var iframe = document.querySelector('iframe');
+   iframe.setAttribute('id', 'myIframe');
+   var getIframe = document.getElementById('myIframe');
+   alert(getIframe);
+   var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+       alert(iframeDocument);
     
     window.ReactNativeWebView.postMessage(iframeDocument);
     window.ReactNativeWebView.postMessage(elementsInIframe);
