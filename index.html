@@ -12,7 +12,9 @@
       const encode = JSON.parse(atob(data));
       Object.keys(encode).forEach(element => {
         const el = document.getElementById(String(element));
-        el.textContent = encode[element];
+        if(el){
+          el.textContent = encode[element];
+        }
       });
       const root = document.getElementById('root');
       html2pdf(root);
