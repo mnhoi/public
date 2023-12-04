@@ -6,11 +6,12 @@
     if (document.readyState === 'complete') {
       clearInterval(stateCheck);
       // document ready
+      try{
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const data = urlParams.get('info')
-      const encode = JSON.parse(atob(data));
-      Object.keys(encode).forEach(element => {
+      const decode = JSON.parse(atob(data));
+      Object.keys(decode).forEach(element => {
         const el = document.getElementById(String(element));
         if(el){
           el.textContent = encode[element];
@@ -18,11 +19,15 @@
       });
       const root = document.getElementById('root');
       html2pdf(root);
+      alert(decode?.success || 'Tải xuống thành công');
+    } catch(e){
+        alert(decode?.fail || 'Tải xuống không thành công');
+    }
     }
   }, 100);
 
 </script>
-<div id="root">
+<div id="root" style="padding: 10px;">
   <div style="font-family: KoHo; size: 18px; font-weight: 500; line-height: 28px">
     <div style="
             width: 100%;
