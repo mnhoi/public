@@ -1,41 +1,49 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
 <script>
   let stateCheck = setInterval(() => {
-    if (document.readyState === 'complete') {
+    if (document.readyState === "complete") {
       clearInterval(stateCheck);
       // document ready
-      try{
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      const data = urlParams.get('info')
+      const data = urlParams.get("info");
       const decode = JSON.parse(atob(data));
-      Object.keys(decode).forEach(element => {
-        const el = document.getElementById(String(element));
-        if(el){
-          el.textContent = encode[element];
-        }
-      });
-      const root = document.getElementById('root');
-      html2pdf(root);
-      alert(decode?.success || 'Tải xuống thành công');
-    } catch(e){
-        alert(decode?.fail || 'Tải xuống không thành công');
-    }
+      try {
+        Object.keys(decode).forEach((element) => {
+          const el = document.getElementById(String(element));
+          if (el) {
+            el.textContent = decode[element];
+          }
+        });
+        const root = document.getElementById("root");
+        html2pdf(root).then(() =>
+          alert(decode?.success || "Tải xuống thành công")
+        );
+      } catch (e) {
+        console.log(e);
+        alert(decode?.fail || "Tải xuống không thành công");
+      }
     }
   }, 100);
-
 </script>
-<div id="root" style="padding: 10px;">
-  <div style="font-family: KoHo; size: 18px; font-weight: 500; line-height: 28px">
-    <div style="
-            width: 100%;
-            height: auto;
-            background: white;
-            display: flex;
-            border: 1px solid #e5e5e5;
-          ">
+<div id="root" style="padding: 10px">
+  <div
+    style="font-family: KoHo; size: 18px; font-weight: 500; line-height: 28px"
+  >
+    <div
+      style="
+        width: 100%;
+        height: auto;
+        background: white;
+        display: flex;
+        border: 1px solid #e5e5e5;
+      "
+    >
       <div style="width: 25%; background-color: #f0f1f5"></div>
       <div style="width: 37.5%; margin: auto">
         <p style="text-align: center; font-weight: 700; size: 18px">
@@ -43,406 +51,574 @@
         </p>
       </div>
       <div style="width: 37.5%">
-        <p style="
-                font-weight: 500;
-                text-transform: uppercase;
-                border: 1px solid #e5e5e5;
-                width: 100%;
-                height: 33.33;
-                margin: 0;
-                padding-left: 20px;
-              ">
+        <p
+          style="
+            font-weight: 500;
+            text-transform: uppercase;
+            border: 1px solid #e5e5e5;
+            width: 100%;
+            height: 33.33;
+            margin: 0;
+            padding-left: 20px;
+          "
+        >
           vjc-go-f-b009
         </p>
-        <p style="
-                border: 1px solid #e5e5e5;
-                width: 100%;
-                height: 33.33;
-                margin: 0;
-                padding-left: 20px;
-              ">
+        <p
+          style="
+            border: 1px solid #e5e5e5;
+            width: 100%;
+            height: 33.33;
+            margin: 0;
+            padding-left: 20px;
+          "
+        >
           Iss01/Rev00
         </p>
-        <p style="
-                border: 1px solid #e5e5e5;
-                width: 100%;
-                height: 33.33;
-                margin: 0;
-                padding-left: 20px;
-              " id="param1">
-        </p>
+        <p
+          style="
+            border: 1px solid #e5e5e5;
+            width: 100%;
+            height: 33.33;
+            margin: 0;
+            padding-left: 20px;
+          "
+          id="param1"
+        ></p>
       </div>
     </div>
   </div>
   <div style="height: 20px; width: 100%"></div>
   <div style="display: flex; height: auto; min-height: 70px">
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Số hiệu chuyến bay/Ngày bay
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Flight No, / Date</span></span>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Số hiệu chuyến bay/Ngày bay
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Flight No, / Date</span
+        ></span
+      >
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <p style="
-              padding: 5px;
-              color: #75767a;
-              text-transform: uppercase;
-              display: table-cell;
-              vertical-align: middle;
-            " id="param2">
-      </p>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <p
+        style="
+          padding: 5px;
+          color: #75767a;
+          text-transform: uppercase;
+          display: table-cell;
+          vertical-align: middle;
+        "
+        id="param2"
+      ></p>
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Khai thác thực tế
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Operation Status</span></span>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Khai thác thực tế
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Operation Status</span
+        ></span
+      >
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param3"></span>
-    </div>
-  </div>
-  <div style="display: flex; height: auto; min-height: 70px">
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Chặng bay
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Route</span></span>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <p style="
-              padding: 5px;
-              color: #75767a;
-              text-transform: uppercase;
-              display: table-cell;
-              vertical-align: middle;
-            " id="param4">
-      </p>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Lý do
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Reason</span></span>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param5"></span>
-    </div>
-  </div>
-  <div style="display: flex; height: auto; min-height: 70px">
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Ngày lập
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Issuing Date</span></span>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <p style="
-              padding: 5px;
-              color: #75767a;
-              text-transform: uppercase;
-              display: table-cell;
-              vertical-align: middle;
-            " id="param6">
-      </p>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">PNR Total Pax
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ PNR</span></span>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
       <span
-        style="padding: 5px; display: table-cell; vertical-align: middle; color: #25A006; font-weight: 500; text-transform: uppercase;"
-        id="param7"></span>
+        style="padding: 5px; display: table-cell; vertical-align: middle"
+        id="param3"
+      ></span>
     </div>
   </div>
-  <div style="display: flex; height: auto;">
-    <div style="
-            width: 100%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-          ">
-      <span style="padding:10px; vertical-align: middle; float: right;">(Giờ địa phương
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ In local time)</span></span>
+  <div style="display: flex; height: auto; min-height: 70px">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Chặng bay
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Route</span
+        ></span
+      >
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <p
+        style="
+          padding: 5px;
+          color: #75767a;
+          text-transform: uppercase;
+          display: table-cell;
+          vertical-align: middle;
+        "
+        id="param4"
+      ></p>
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Lý do
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Reason</span
+        ></span
+      >
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span
+        style="padding: 5px; display: table-cell; vertical-align: middle"
+        id="param5"
+      ></span>
+    </div>
+  </div>
+  <div style="display: flex; height: auto; min-height: 70px">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Ngày lập
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Issuing Date</span
+        ></span
+      >
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <p
+        style="
+          padding: 5px;
+          color: #75767a;
+          text-transform: uppercase;
+          display: table-cell;
+          vertical-align: middle;
+        "
+        id="param6"
+      ></p>
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >PNR Total Pax
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ PNR</span
+        ></span
+      >
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span
+        style="
+          padding: 5px;
+          display: table-cell;
+          vertical-align: middle;
+          color: #25a006;
+          font-weight: 500;
+          text-transform: uppercase;
+        "
+        id="param7"
+      ></span>
+    </div>
+  </div>
+  <div style="display: flex; height: auto">
+    <div style="width: 100%; border: 1px solid #e5e5e5; text-wrap: wrap">
+      <span style="padding: 10px; vertical-align: middle; float: right"
+        >(Giờ địa phương
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ In local time)</span
+        ></span
+      >
     </div>
   </div>
   <div style="display: flex; height: auto; min-height: 50px">
-    <div style="
-            width: 50%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            text-align: center;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Nơi đi
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Departure</span></span>
+    <div
+      style="
+        width: 50%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        text-align: center;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Nơi đi
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Departure</span
+        ></span
+      >
     </div>
-    <div style="
-            width: 50%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            text-align: center;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Nơi đến
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ In local time</span></span>
-    </div>
-  </div>
-  <div style="display: flex; height: auto; min-height: 70px; text-align: center;">
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ theo lịch
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Schedule Time</span></span>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ thực tế
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Actual time</span></span>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ theo lịch
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Schedule Time</span></span>
-    </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ thực tế
-        <span style="
-                padding: 5px;
-                font-weight: 400;
-                font-style: italic;
-                color: #75767a;
-              ">/ Actual time</span></span>
+    <div
+      style="
+        width: 50%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        text-align: center;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Nơi đến
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ In local time</span
+        ></span
+      >
     </div>
   </div>
-  <div style="display: flex; height: auto; min-height: 70px; text-align: center;">
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            color: #75767A;
-            font-weight: 500;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param8">
+  <div
+    style="display: flex; height: auto; min-height: 70px; text-align: center"
+  >
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Giờ theo lịch
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Schedule Time</span
+        ></span
+      >
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Giờ thực tế
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Actual time</span
+        ></span
+      >
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Giờ theo lịch
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Schedule Time</span
+        ></span
+      >
+    </div>
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Giờ thực tế
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Actual time</span
+        ></span
+      >
+    </div>
+  </div>
+  <div
+    style="display: flex; height: auto; min-height: 70px; text-align: center"
+  >
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        color: #75767a;
+        font-weight: 500;
+      "
+    >
+      <span
+        style="padding: 5px; display: table-cell; vertical-align: middle"
+        id="param8"
+      >
       </span>
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            color: #75767A;
-            font-weight: 500;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param9">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        color: #75767a;
+        font-weight: 500;
+      "
+    >
+      <span
+        style="padding: 5px; display: table-cell; vertical-align: middle"
+        id="param9"
+      >
       </span>
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            color: #75767A;
-            font-weight: 500;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param10">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        color: #75767a;
+        font-weight: 500;
+      "
+    >
+      <span
+        style="padding: 5px; display: table-cell; vertical-align: middle"
+        id="param10"
+      >
       </span>
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            color: #75767A;
-            font-weight: 500;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param11">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        color: #75767a;
+        font-weight: 500;
+      "
+    >
+      <span
+        style="padding: 5px; display: table-cell; vertical-align: middle"
+        id="param11"
+      >
       </span>
     </div>
   </div>
-  <div style="display: flex; height: auto; min-height: 70px; text-align: center;">
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            font-weight: 500;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Thông tin hành khách
-        <span style="
-                    padding: 5px;
-                    font-weight: 400;
-                    font-style: italic;
-                    color: #75767a;
-                  ">/ Pax information</span></span>
+  <div
+    style="display: flex; height: auto; min-height: 70px; text-align: center"
+  >
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        font-weight: 500;
+      "
+    >
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"
+        >Thông tin hành khách
+        <span
+          style="
+            padding: 5px;
+            font-weight: 400;
+            font-style: italic;
+            color: #75767a;
+          "
+          >/ Pax information</span
+        ></span
+      >
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            font-weight: 500;
-          ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle;          text-transform: uppercase;"
-        id="param12">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        font-weight: 500;
+      "
+    >
+      <span
+        style="
+          padding: 5px;
+          display: table-cell;
+          vertical-align: middle;
+          text-transform: uppercase;
+        "
+        id="param12"
+      >
       </span>
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            color: #75767A;
-            font-weight: 500;
-          ">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        color: #75767a;
+        font-weight: 500;
+      "
+    >
       <span style="padding: 5px; display: table-cell; vertical-align: middle">
       </span>
     </div>
-    <div style="
-            width: 25%;
-            border: 1px solid #e5e5e5;
-            text-wrap: wrap;
-            display: table;
-            color: #75767A;
-            font-weight: 500;
-          ">
+    <div
+      style="
+        width: 25%;
+        border: 1px solid #e5e5e5;
+        text-wrap: wrap;
+        display: table;
+        color: #75767a;
+        font-weight: 500;
+      "
+    >
       <span style="padding: 5px; display: table-cell; vertical-align: middle">
       </span>
     </div>
   </div>
-  <div style="font-family: KoHo; margin-top: 10px; size: 16px;">
+  <div style="font-family: KoHo; margin-top: 10px; size: 16px">
     This is certified as mentioned above.
   </div>
-  <div style="font-family: KoHo; size: 16px;">
-    This document shall neither be construed as having any legal effect nor constitute any rights or obligations
-    betweenthe carrier and
-    passenger.
+  <div style="font-family: KoHo; size: 16px">
+    This document shall neither be construed as having any legal effect nor
+    constitute any rights or obligations betweenthe carrier and passenger.
   </div>
 </div>
