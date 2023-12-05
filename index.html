@@ -27,19 +27,26 @@
       const urlParams = new URLSearchParams(queryString);
       const data = urlParams.get("info");
       const decode = JSON.parse(atob(data));
+      console.log("🚀 ~ file: FOC.html:30 ~ stateCheck ~ decode:", decode)
       try {
         Object.keys(decode).forEach((element) => {
           const el = document.getElementById(String(element));
-          if(element == 'language'){
+          if (element == 'language') {
             const param14 = document.getElementById('param14');
-            param14.textContent = decode?.language == 'vi' ? messageDownload.vi : messageDownload.en
+            param14.textContent = String(decode?.language).includes('vi') ? messageDownload.vi : messageDownload.en
           }
           if (el) {
             switch (element) {
               case 'param3':
-                return el.textContent = delay.vi.replace('{delayTime}', decode[element]);
+                if (decode[element]) {
+                  el.textContent = delay.vi.replace('{delayTime}', decode[element]);
+                }
+                break;
               case 'param13':
-                return el.textContent = delay.en.replace('{delayTime}', decode[element]);
+                if (decode[element]) {
+                  el.textContent = delay.en.replace('{delayTime}', decode[element]);
+                }
+                break;
               default:
                 return el.textContent = decode[element];
             }
@@ -50,13 +57,13 @@
 
         const download = document.getElementById("download");
         download.addEventListener('click', () => {
-          html2pdf(root, {filename: `${decode?.param4 || 'VJ-FOC'}.pdf`}).then(() =>
-            alert(decode?.language == 'vi' ? messageSuccess.vi : messageSuccess.en)
+          html2pdf(root, { filename: `${decode?.param4 || 'VJ-FOC'}.pdf` }).then(() =>
+            alert(String(decode?.language).includes('vi') ? messageSuccess.vi : messageSuccess.en)
           );
         })
       } catch (e) {
         console.log(e);
-        alert(decode?.language === 'vi' ? messageFail.vi : messageFail.en)
+        alert(String(decode?.language).includes('vi') ? messageFail.vi : messageFail.en)
       }
     }
   }, 100);
