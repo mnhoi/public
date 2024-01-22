@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>Home</title>
+</head>
+
+<body>
+    <div id="galaxy-pay-sdk"></div>
+
+    <script>
+        function callbackPaymentResult(resultData) {
+            window.ReactNativeWebView.postMessage('success');
+        }
+        // Callback Function close modal
+        function callbackOnCloseModal() {
+            window.ReactNativeWebView.postMessage('fail');
+        }
+
+        // Invoke Payment Function 
+        function onPayment(endpoint = '', language = 'en') {
+            // endpoint that is received from API checkout
+            const option = {
+                language: language // vi or en
+            };
+            // Call payment function from SDK
+            galaxyPaySubmitPayment(endpoint, callbackPaymentResult, callbackOnCloseModal, option);
+        }
+
+    </script>
+
+</body>
+
+</html>
