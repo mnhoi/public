@@ -27,7 +27,6 @@
       const urlParams = new URLSearchParams(queryString);
       const data = urlParams.get("info");
       const decode = JSON.parse(decodeURIComponent(atob(data)) );
-      console.log("🚀 ~ file: FOC.html:30 ~ stateCheck ~ decode:", decode)
       try {
         Object.keys(decode).forEach((element) => {
           const el = document.getElementById(String(element));
