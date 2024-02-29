@@ -3,7 +3,7 @@
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   const delay = {
-    vi: 'Trễ hơn {delayTime} phút',
+    vi: '{delayTime}분 이상 늦음',
     en: 'Delay more than {delayTime} minutes'
   };
   const messageSuccess = {
@@ -78,8 +78,7 @@
         border: 1px solid #e5e5e5;
       ">
       <div style="width: 25%; background-color: #f0f1f5; display: flex; justify-content: center; align-items: center;">
-        <img style="height: 50;
-    width: 150;" src="https://vj-prod-mobileapp-media.s3.ap-southeast-1.amazonaws.com/fcd56cee-b7ed-4402-afbf-6f56f9028e17/upload/20240229/Tkjkb29022024044626_Group.png"/>
+        <img src="https://vj-prod-mobileapp-media.s3.ap-southeast-1.amazonaws.com/fcd56cee-b7ed-4402-afbf-6f56f9028e17/upload/20240229/Tkjkb29022024044626_Group.png"/>
     </div>
       <div style="width: 37.5%; margin: auto">
         <p style="text-align: center; font-weight: 700; size: 18px">
@@ -125,7 +124,7 @@
         text-wrap: wrap;
         display: block;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Số hiệu chuyến bay/Ngày bay
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">항공편 번호/비행 날짜
       </span>
       <p style="
           padding: 5px;
@@ -156,7 +155,7 @@
         text-wrap: wrap;
         display: block;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Khai thác thực tế
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">현실적인 채굴
       </span>
       <p style="
         padding: 5px;
@@ -243,7 +242,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Ngày lập
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">설립일
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -297,7 +296,7 @@
   </div>
   <div style="display: flex; height: auto">
     <div style="width: 100%; border: 1px solid #e5e5e5; text-wrap: wrap">
-      <span style="padding: 10px; vertical-align: middle; float: right">(Giờ địa phương
+      <span style="padding: 10px; vertical-align: middle; float: right">(현지 시각 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -314,7 +313,7 @@
         display: table;
         text-align: center;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Nơi đi
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">출발 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -329,7 +328,7 @@
         display: table;
         text-align: center;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Nơi đến
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">목적지
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -345,7 +344,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ theo lịch
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">예정된 시간
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -359,7 +358,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ thực tế
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"> 실제 시간
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -373,7 +372,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ theo lịch
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">예정된 시간 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -387,7 +386,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Giờ thực tế
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">실제 시간
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -450,7 +449,7 @@
         display: table;
         font-weight: 500;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">Thông tin hành khách
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">인원 정보
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -497,15 +496,15 @@
     </div>
   </div>
   <div style="font-family: KoHo; margin-top: 10px; size: 16px">
-    This is certified as mentioned above.
+    상기와 같이 운항하였음을 확인합니다. /This is certified as mentioned above.
   </div>
   <div style="font-family: KoHo; size: 16px">
-    This document shall neither be construed as having any legal effect nor
+    본 확인서는 법적 효력을 갖지 않으며 확인서 발급 사실만으로 당사의 책임이 인정되는 것은 아닙니다./This document shall neither be construed as having any legal effect nor
     constitute any rights or obligations betweenthe carrier and passenger.
   </div>
 </div>
 </div>
 <div style="display: flex; float: right;" id="download">
   <img src="https://www.vietjetair.com/static/media/download-icon.927424db.svg" />
-  <p id="param14" style="color: #498ae4; margin-left: 5px; font-size: 20px;">Tải về/Download</p>
+  <p id="param14" style="color: #498ae4; margin-left: 5px; font-size: 20px;">다운로드/Download</p>
 </div>
