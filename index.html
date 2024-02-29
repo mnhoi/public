@@ -27,6 +27,7 @@
       const urlParams = new URLSearchParams(queryString);
       const data = urlParams.get("info");
       const decode = JSON.parse(decodeURIComponent(atob(data)) );
+      console.log("🚀 ~ file: FOC.html:30 ~ stateCheck ~ decode:", decode)
       try {
         Object.keys(decode).forEach((element) => {
           const el = document.getElementById(String(element));
@@ -494,10 +495,10 @@
       </span>
     </div>
   </div>
-  <div style="font-family: KoHo; margin-top: 10px; size: 16px">
+  <div style="font-family: KoHo; margin-top: 10px; font-size: 12px">
     상기와 같이 운항하였음을 확인합니다. /This is certified as mentioned above.
   </div>
-  <div style="font-family: KoHo; size: 16px">
+  <div style="font-family: KoHo; font-size: 12px">
     본 확인서는 법적 효력을 갖지 않으며 확인서 발급 사실만으로 당사의 책임이 인정되는 것은 아닙니다./This document shall neither be construed as having any legal effect nor
     constitute any rights or obligations betweenthe carrier and passenger.
   </div>
