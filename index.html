@@ -3,19 +3,19 @@
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   const delay = {
-    vi: '{delayTime}분 이상 늦음',
+    ko: '{delayTime}분 이상 늦음',
     en: 'Delay more than {delayTime} minutes'
   };
   const messageSuccess = {
-    vi: 'Tải xuống thành công',
+    ko: '성공적으로 다운로드되었습니다.',
     en: 'Download success'
   };
   const messageFail = {
-    vi: 'Có lỗi đã xảy ra, không thể tải xuống',
+    ko: '오류가 발생하여 다운로드할 수 없습니다.',
     en: 'An error occurred, the download could not be made'
   }
   const messageDownload = {
-    vi: 'Tải về',
+    ko: '다운로드',
     en: 'Download'
   }
 
@@ -33,13 +33,13 @@
           const el = document.getElementById(String(element));
           if (element == 'language') {
             const param14 = document.getElementById('param14');
-            param14.textContent = String(decode?.language).includes('vi') ? messageDownload.vi : messageDownload.en
+            param14.textContent = String(decode?.language).includes('ko') ? messageDownload.ko : messageDownload.en
           }
           if (el) {
             switch (element) {
               case 'param3':
                 if (decode[element]) {
-                  el.textContent = delay.vi.replace('{delayTime}', decode[element]);
+                  el.textContent = delay.ko.replace('{delayTime}', decode[element]);
                 }
                 break;
               case 'param13':
@@ -58,12 +58,12 @@
         const download = document.getElementById("download");
         download.addEventListener('click', () => {
           html2pdf(root, { filename: `${decode?.param4 || 'VJ-FOC'}.pdf` }).then(() =>
-            alert(String(decode?.language).includes('vi') ? messageSuccess.vi : messageSuccess.en)
+            alert(String(decode?.language).includes('ko') ? messageSuccess.ko : messageSuccess.en)
           );
         })
       } catch (e) {
         console.log(e);
-        alert(String(decode?.language).includes('vi') ? messageFail.vi : messageFail.en)
+        alert(String(decode?.language).includes('ko') ? messageFail.ko : messageFail.en)
       }
     }
   }, 100);
