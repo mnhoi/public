@@ -70,15 +70,13 @@
 
         const download = document.getElementById("download");
         download.addEventListener('click', () => {
-          console.log("🚀 ~ download.addEventListener ~ lang:", lang)
-
           html2pdf(root, { filename: `${decode?.param4 || 'VJ-FOC'}.pdf` }).then(() =>
             alert( messageSuccess[`${lang}`])
           );
         })
       } catch (e) {
         console.log(e);
-        alert(String(decode?.language).includes('ko') ? messageFail.ko : messageFail.en)
+        alert(messageFail[`${lang}`]);
       }
     }
   }, 100);
