@@ -4,20 +4,24 @@
 <script>
   const delay = {
     ko: '{delayTime}분 이상 늦음',
-    en: 'Delay more than {delayTime} minutes'
+    en: 'Delay more than {delayTime} minutes',
+    vi: 'Trễ hơn {delayTime} phút',
   };
   const messageSuccess = {
     ko: '성공적으로 다운로드되었습니다.',
-    en: 'Download success'
+    en: 'Download success',
+    vi: 'Tải xuống thành công',
   };
   const messageFail = {
     ko: '오류가 발생하여 다운로드할 수 없습니다.',
-    en: 'An error occurred, the download could not be made'
-  }
+    en: 'An error occurred, the download could not be made',
+    vi: 'Có lỗi xảy ra, tải xuống không thành công',
+  };
   const messageDownload = {
     ko: '다운로드',
-    en: 'Download'
-  }
+    en: 'Download',
+    vi: 'Tải xuống',
+  };
 
   let stateCheck = setInterval(() => {
     if (document.readyState === "complete") {
@@ -123,7 +127,7 @@
         text-wrap: wrap;
         display: block;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">항공편 번호/비행 날짜
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param15">항공편 번호/비행 날짜
       </span>
       <p style="
           padding: 5px;
@@ -154,7 +158,7 @@
         text-wrap: wrap;
         display: block;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">현실적인 채굴
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param16">현실적인 채굴
       </span>
       <p style="
         padding: 5px;
@@ -189,7 +193,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">비행 
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param17">비행 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -217,7 +221,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">이유
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param18">이유
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -241,7 +245,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">설립일
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param19">설립일
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -295,7 +299,7 @@
   </div>
   <div style="display: flex; height: auto">
     <div style="width: 100%; border: 1px solid #e5e5e5; text-wrap: wrap">
-      <span style="padding: 10px; vertical-align: middle; float: right">(현지 시각 
+      <span style="padding: 10px; vertical-align: middle; float: right" id="param20">(현지 시각 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -312,7 +316,7 @@
         display: table;
         text-align: center;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">출발 
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param21">출발 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -327,7 +331,7 @@
         display: table;
         text-align: center;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">목적지
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param22">목적지
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -343,7 +347,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">예정된 시간
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param23">예정된 시간
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -357,7 +361,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle"> 실제 시간
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param24"> 실제 시간
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -371,7 +375,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">예정된 시간 
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param25">예정된 시간 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -385,7 +389,7 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">실제 시간
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param26">실제 시간
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -448,7 +452,7 @@
         display: table;
         font-weight: 500;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle">인원 정보
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param27">인원 정보
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -494,10 +498,10 @@
       </span>
     </div>
   </div>
-  <div style="font-family: KoHo; margin-top: 10px; font-size: 12px">
+  <div style="font-family: KoHo; margin-top: 10px; font-size: 12px" id="param28">
     상기와 같이 운항하였음을 확인합니다. /This is certified as mentioned above.
   </div>
-  <div style="font-family: KoHo; font-size: 12px">
+  <div style="font-family: KoHo; font-size: 12px" id="param29">
     본 확인서는 법적 효력을 갖지 않으며 확인서 발급 사실만으로 당사의 책임이 인정되는 것은 아닙니다./This document shall neither be construed as having any legal effect nor
     constitute any rights or obligations betweenthe carrier and passenger.
   </div>
