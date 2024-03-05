@@ -30,22 +30,22 @@
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const data = urlParams.get("info");
-      const decode = JSON.parse(decodeURIComponent(atob(data)) );
+      const decode = JSON.parse(decodeURIComponent(atob(data)));
       let lang = '';
       try {
         Object.keys(decode).forEach((element) => {
           const el = document.getElementById(String(element));
           if (element == 'language') {
             const param14 = document.getElementById('param14');
-            if(String(decode?.language).includes('ko')){
+            if (String(decode?.language).includes('ko')) {
               lang = 'ko';
               param14.textContent = messageDownload.ko;
-            } else if(String(decode?.language).includes('vi')){
+            } else if (String(decode?.language).includes('vi')) {
               lang = 'vi';
-              param14.textContent =  messageDownload.vi;
+              param14.textContent = messageDownload.vi;
             } else {
               lang = 'vi';
-              param14.textContent =  messageDownload.en;
+              param14.textContent = messageDownload.en;
             }
           }
           if (el) {
@@ -71,7 +71,7 @@
         const download = document.getElementById("download");
         download.addEventListener('click', () => {
           html2pdf(root, { filename: `${decode?.param4 || 'VJ-FOC'}.pdf` }).then(() =>
-            alert( messageSuccess[`${lang}`])
+            alert(messageSuccess[`${lang}`])
           );
         })
       } catch (e) {
@@ -91,8 +91,9 @@
         border: 1px solid #e5e5e5;
       ">
       <div style="width: 25%; background-color: #f0f1f5; display: flex; justify-content: center; align-items: center;">
-        <img src="data:image/png;base64,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" />
-    </div>
+        <img
+          src="data:image/png;base64,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" />
+      </div>
       <div style="width: 37.5%; margin: auto">
         <p style="text-align: center; font-weight: 700; size: 18px">
           FLIGHT OPERATIONS CERTIFICATE
@@ -203,7 +204,8 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param17">비행 
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">
+        <span id="param17">비행</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -231,7 +233,8 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param18">이유
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">
+        <span id="param18">이유</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -255,7 +258,8 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param19">설립일
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">
+        <span id="param19">설립일</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -309,7 +313,8 @@
   </div>
   <div style="display: flex; height: auto">
     <div style="width: 100%; border: 1px solid #e5e5e5; text-wrap: wrap">
-      <span style="padding: 10px; vertical-align: middle; float: right" id="param20">(현지 시각 
+      <span style="padding: 10px; vertical-align: middle; float: right">
+        <span id="param20">(현지 시각 </span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -326,7 +331,8 @@
         display: table;
         text-align: center;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param21">출발 
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">
+        <span id="param21">출발</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -341,13 +347,13 @@
         display: table;
         text-align: center;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param22">목적지
+      <span style="padding: 5px; display: table-cell; vertical-align: middle"><span id="param22">목적지</span>
         <span style="
             padding: 5px;
             font-weight: 400;
             font-style: italic;
             color: #75767a;
-          ">/ In local time</span></span>
+          ">/ Arrival</span></span>
     </div>
   </div>
   <div style="display: flex; height: auto; min-height: 70px; text-align: center">
@@ -357,7 +363,8 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param23">예정된 시간
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">
+        <span id="param23" >예정된 시간</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -371,7 +378,8 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param24"> 실제 시간
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">
+        <span id="param24">실제 시간</span> 
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -385,7 +393,8 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param25">예정된 시간 
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" >
+        <span id="param25">예정된 시간</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -399,7 +408,8 @@
         text-wrap: wrap;
         display: table;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param26">실제 시간
+      <span style="padding: 5px; display: table-cell; vertical-align: middle">
+        <span id="param26">실제 시간</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -462,7 +472,8 @@
         display: table;
         font-weight: 500;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param27">인원 정보
+      <span style="padding: 5px; display: table-cell; vertical-align: middle" >
+        <span id="param27">인원 정보</span>
         <span style="
             padding: 5px;
             font-weight: 400;
@@ -512,7 +523,8 @@
     상기와 같이 운항하였음을 확인합니다. /This is certified as mentioned above.
   </div>
   <div style="font-family: KoHo; font-size: 12px" id="param29">
-    본 확인서는 법적 효력을 갖지 않으며 확인서 발급 사실만으로 당사의 책임이 인정되는 것은 아닙니다./This document shall neither be construed as having any legal effect nor
+    본 확인서는 법적 효력을 갖지 않으며 확인서 발급 사실만으로 당사의 책임이 인정되는 것은 아닙니다./This document shall neither be construed as having any legal
+    effect nor
     constitute any rights or obligations betweenthe carrier and passenger.
   </div>
 </div>
