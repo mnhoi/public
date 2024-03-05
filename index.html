@@ -31,10 +31,10 @@
       const urlParams = new URLSearchParams(queryString);
       const data = urlParams.get("info");
       const decode = JSON.parse(decodeURIComponent(atob(data)) );
+      let lang = '';
       try {
         Object.keys(decode).forEach((element) => {
           const el = document.getElementById(String(element));
-          let lang = '';
           if (element == 'language') {
             const param14 = document.getElementById('param14');
             if(String(decode?.language).includes('ko')){
@@ -70,8 +70,10 @@
 
         const download = document.getElementById("download");
         download.addEventListener('click', () => {
+          console.log("🚀 ~ download.addEventListener ~ lang:", lang)
+
           html2pdf(root, { filename: `${decode?.param4 || 'VJ-FOC'}.pdf` }).then(() =>
-            alert(String(decode?.language).includes('ko') ? messageSuccess.ko : messageSuccess.en)
+            alert( messageSuccess[`${lang}`])
           );
         })
       } catch (e) {
