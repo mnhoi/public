@@ -34,20 +34,30 @@
       try {
         Object.keys(decode).forEach((element) => {
           const el = document.getElementById(String(element));
+          let lang = '';
           if (element == 'language') {
             const param14 = document.getElementById('param14');
-            param14.textContent = String(decode?.language).includes('ko') ? messageDownload.ko : messageDownload.en
+            if(String(decode?.language).includes('ko')){
+              lang = 'ko';
+              param14.textContent = messageDownload.ko;
+            } else if(String(decode?.language).includes('vi')){
+              lang = 'vi';
+              param14.textContent =  messageDownload.vi;
+            } else {
+              lang = 'vi';
+              param14.textContent =  messageDownload.en;
+            }
           }
           if (el) {
             switch (element) {
               case 'param3':
                 if (decode[element]) {
-                  el.textContent = delay.ko.replace('{delayTime}', decode[element]);
+                  el.textContent = delay[`${lang}`].replace('{delayTime}', decode[element]);
                 }
                 break;
               case 'param13':
                 if (decode[element]) {
-                  el.textContent = delay.en.replace('{delayTime}', decode[element]);
+                  el.textContent = delay[`${lang}`].replace('{delayTime}', decode[element]);
                 }
                 break;
               default:
