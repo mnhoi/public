@@ -1,6 +1,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
   integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    window.onload = function() {
+        var metaCharset = document.createElement('meta');
+        metaCharset.setAttribute('charset', 'UTF-8');
+        document.head.appendChild(metaCharset);
+    };
+</script>
 <script>
   const delay = {
     ko: '{delayTime}분 이상 늦음',
@@ -176,7 +183,6 @@
       <p id="param13" style="
         padding: 5px;
         font-weight: 400;
-        font-style: italic;
         color: #75767a;
         margin: 0px;
       "></p>
@@ -232,9 +238,17 @@
         width: 25%;
         border: 1px solid #e5e5e5;
         text-wrap: wrap;
-        display: table;
+        display: block;
       ">
-      <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param5"></span>
+       <span style="padding: 5px; display: table-cell; vertical-align: middle" id="param30">
+    </span>
+    <p id="param5" style="
+      padding: 5px;
+      font-weight: 400;
+      color: #75767a;
+      margin: 0px;
+    "></p>
+
     </div>
   </div>
   <div style="display: flex; height: auto; min-height: 70px">
@@ -511,7 +525,7 @@
   <div style="font-family: KoHo; font-size: 12px" id="param29">
     본 확인서는 법적 효력을 갖지 않으며 확인서 발급 사실만으로 당사의 책임이 인정되는 것은 아닙니다./This document shall neither be construed as having any legal
     effect nor
-    constitute any rights or obligations betweenthe carrier and passenger.
+    constitute any rights or obligations between the carrier and passenger.
   </div>
 </div>
 </div>
