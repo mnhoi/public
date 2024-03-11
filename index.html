@@ -49,21 +49,8 @@
             }
           }
           if (el) {
-            switch (element) {
-              // case 'param3':
-              //   if (decode[element]) {
-              //     el.textContent = delay[`${lang}`].replace('{delayTime}', decode[element]);
-              //   }
-              //   break;
-              case 'param13':
-                if (decode[element]) {
-                  el.textContent = delay[`${lang}`].replace('{delayTime}', decode[element]);
-                }
-                break;
-              default:
-                return el.textContent = decode[element];
+              return el.textContent = decode[element];
             }
-
           }
         });
         const root = document.getElementById("root");
