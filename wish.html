@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Wish</title>
+  <title>CodePen - Firework Simulator v2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,7 +20,26 @@
   color: white;
   font-size: 12px;
 }
+@media (orientation: portrait) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8d7da;
+    color: #721c24;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
 
+  body::before {
+    content: "Please rotate your device to landscape mode.";
+    font-size: 1.5rem;
+	z-index: 99999999999999999999999999999999999;
+	position: absolute;
+	bottom: 0;
+  }
+}
 body {
   height: 100vh;
   display: flex;
@@ -276,6 +295,8 @@ body {
   padding: 0 10px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+    z-index: 99999999999999999999999999999999;
+    background-color: black;
 }
 .menu .form-option {
   display: flex;
@@ -349,6 +370,22 @@ body {
   .btn--bright:hover {
     opacity: 0.75;
   }
+}
+@media (max-width: 512px) {
+  .months {
+	font-size: 10px;
+	gap: 12px;
+    margin-left: 10px;
+  }
+  .weeks {
+	font-size: 10px;
+	}
+	.git-contributions {
+		width: 100%;
+	}
+	.bottom-scale{
+		justify-content: start;
+	}
 }
 .btn svg {
   display: block;
