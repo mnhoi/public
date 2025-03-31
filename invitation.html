@@ -504,20 +504,7 @@
 
       <h2>Our Photo Gallery</h2>
       <div class="gallery-container">
-        <div class="photo-gallery" id="photoGallery">
-          <!-- Images will be loaded here -->
-          <div class="gallery-item">
-            <img src="/api/placeholder/400/320" alt="placeholder" />
-          </div>
-          <div class="gallery-item">
-            <img src="/api/placeholder/400/320" alt="placeholder" />
-          </div>
-          <div class="gallery-item">
-            <img src="/api/placeholder/400/320" alt="placeholder" />
-          </div>
-          <div class="gallery-item">
-            <img src="/api/placeholder/400/320" alt="placeholder" />
-          </div>
+        <div class="photo-gallery" id="photoGallery">        
         </div>
       </div>
 
@@ -692,10 +679,8 @@
       function loadGoogleDriveImages() {
         // Clear existing gallery
         const gallery = document.getElementById("photoGallery");
-        gallery.innerHTML = "<p>Loading images...</p>";
-
         const apiKey = "AIzaSyAetKFQKY432FOBO8K0y7eNQ-jbBI1Y5I8"; // your public API key
-        const folderId = "1B3H3_CM03OL_2spULHcDxELbYa4DQxkm";
+        const folderId = "1chkXttXYwUmcT1QEniE7qddic9HySYOv";
         const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+mimeType contains 'image/'&key=${apiKey}&fields=files(id,name,mimeType)`;
 
         fetch(url)
@@ -704,7 +689,7 @@
             data.files.forEach((file, index) => {
               const galleryItem = document.createElement("div");
               galleryItem.className = "gallery-item";
-              galleryItem.innerHTML = `<img src="https://drive.google.com/uc?export=view&id=${
+              galleryItem.innerHTML = `<img src="https://drive.google.com/thumbnail?id=${
                 file.id
               }" alt="Wedding Photo ${index + 1}" data-index="${index}">`;
 
@@ -721,41 +706,6 @@
             document.getElementById("image-gallery").innerText =
               "Failed to load images. See console.";
           });
-        setTimeout(() => {
-          gallery.innerHTML = "";
-
-          // Sample image URLs (in a real scenario, these would come from Google Drive)
-          const sampleImageURLs = [
-            "/api/placeholder/400/320",
-            "/api/placeholder/400/320",
-            "/api/placeholder/400/320",
-            "/api/placeholder/400/320",
-            "/api/placeholder/400/320",
-            "/api/placeholder/400/320",
-            "/api/placeholder/400/320",
-            "/api/placeholder/400/320",
-          ];
-
-          // Display message about Google Drive API requirements
-          const messageElement = document.createElement("div");
-          messageElement.innerHTML = `
-                    <div style="grid-column: 1 / -1; background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-                        <h3>Google Drive Integration</h3>
-                        <p>To fully implement Google Drive integration, you would need:</p>
-                        <ol style="text-align: left; margin-left: 20px;">
-                            <li>Google Drive API credentials</li>
-                            <li>Server-side code to handle authentication</li>
-                            <li>API requests to list and access files</li>
-                        </ol>
-                        <p>Below are placeholder images that demonstrate how your gallery would display.</p>
-                        <p>Folder ID from your link: ${folderId}</p>
-                    </div>
-                `;
-          gallery.appendChild(messageElement);
-
-          // Store the image URLs for fullscreen navigation
-          //window.galleryImages = sampleImageURLs;
-        }, 1500);
       }
 
       // Fullscreen gallery functionality
